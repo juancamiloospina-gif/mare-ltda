@@ -1,7 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CatalogoPage } from "@/components/catalogo/CatalogoPage";
+import type { CategorySlug } from "@/data/mare-data";
+
+type CatalogoSearch = { linea: CategorySlug | undefined };
 
 export const Route = createFileRoute("/catalogo")({
+  validateSearch: (search: Record<string, unknown>): CatalogoSearch => {
+    const linea = search["linea"];
+    return { linea: typeof linea === "string" ? (linea as CategorySlug) : undefined };
+  },
   head: () => ({
     meta: [
       { title: "Catálogo | MARE" },

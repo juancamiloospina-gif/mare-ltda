@@ -13,6 +13,7 @@ import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/components/layout/motion";
 import { CountUp } from "@/components/layout/motion";
+import { CategoryStrip } from "@/components/home/CategoryStrip";
 import heroImage from "@/assets/mare-hero.jpg";
 import bovinosImage from "@/assets/mare-bovinos.jpg";
 import equinosImage from "@/assets/mare-equinos.jpg";
@@ -28,6 +29,7 @@ const trustStats = [
 const species = [
   {
     name: "Bovinos",
+    slug: "bovinos" as const,
     image: bovinosImage,
     alt: "Ganado Normando y Jersey en potrero",
     copy: "Prevención, tratamiento y nutrición para hatos más sanos y productivos.",
@@ -35,6 +37,7 @@ const species = [
   },
   {
     name: "Equinos",
+    slug: "equinos" as const,
     image: equinosImage,
     alt: "Caballo criollo colombiano en movimiento",
     copy: "Bienestar, reproducción y desempeño para ejemplares en su mejor condición.",
@@ -56,7 +59,7 @@ export function HomeSections() {
           className="absolute inset-0 h-full w-full object-cover object-[64%_center]"
         />
         <div className="hero-scrim absolute inset-0" />
-        <div className="relative mx-auto flex w-full max-w-7xl items-end px-5 pb-16 pt-32 sm:px-8 md:items-center md:pb-12 lg:px-10">
+        <div className="relative mx-auto flex w-full max-w-7xl items-end px-5 pb-40 pt-32 sm:px-8 sm:pb-48 md:items-center md:pb-40 lg:px-10">
           <div className="max-w-4xl animate-hero-in">
             <div className="mb-5 inline-flex items-center gap-2 border-l-2 border-brand-orange pl-3 text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground/85">
               <BadgeCheck className="size-4 text-brand-orange-light" /> Distribuidor veterinario en
@@ -71,7 +74,7 @@ export function HomeSections() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="brand" size="xl">
-                <Link to="/catalogo">
+                <Link to="/catalogo" search={{ linea: undefined }}>
                   Explorar catálogo <ArrowDown />
                 </Link>
               </Button>
@@ -86,10 +89,13 @@ export function HomeSections() {
         <a
           href="#confianza"
           aria-label="Ver más"
-          className="absolute bottom-5 right-5 hidden h-12 w-12 items-center justify-center rounded-full border border-primary-foreground/35 text-primary-foreground transition hover:bg-primary-foreground/10 sm:flex lg:right-10"
+          className="absolute bottom-24 right-5 z-10 hidden h-12 w-12 items-center justify-center rounded-full border border-primary-foreground/35 text-primary-foreground transition hover:bg-primary-foreground/10 sm:flex lg:right-10"
         >
           <ArrowDown />
         </a>
+        <div className="absolute inset-x-0 bottom-0">
+          <CategoryStrip />
+        </div>
       </section>
 
       <section
@@ -155,6 +161,7 @@ export function HomeSections() {
                   <p className="mt-3 max-w-md leading-7 text-primary-foreground/78">{item.copy}</p>
                   <Link
                     to="/catalogo"
+                    search={{ linea: item.slug }}
                     className="mt-6 inline-flex items-center gap-2 font-bold text-brand-orange-light"
                   >
                     Ver soluciones{" "}

@@ -81,6 +81,45 @@ export const locations: Location[] = [
   },
 ];
 
+// Líneas de producto — segmentación de la portada (como la referencia de la competencia).
+// "available: false" son líneas que Mare aún no tiene cargadas en el catálogo: se muestran
+// como "Próximamente" en vez de inventar productos que no maneja.
+export type CategorySlug = "bovinos" | "equinos" | "mascotas" | "porcicultura";
+
+export type Category = {
+  slug: CategorySlug;
+  label: string;
+  tagline: string;
+  available: boolean;
+};
+
+export const categories: Category[] = [
+  {
+    slug: "bovinos",
+    label: "Línea Ganadería",
+    tagline: "Vacunas, antiparasitarios y productividad para hatos de leche y carne.",
+    available: true,
+  },
+  {
+    slug: "equinos",
+    label: "Línea Equinos",
+    tagline: "Reproducción, bienestar y desempeño para ejemplares de trabajo y deporte.",
+    available: true,
+  },
+  {
+    slug: "mascotas",
+    label: "Línea Mascotas",
+    tagline: "Próximamente en el portafolio MARE.",
+    available: false,
+  },
+  {
+    slug: "porcicultura",
+    label: "Línea Porcicultura",
+    tagline: "Próximamente en el portafolio MARE.",
+    available: false,
+  },
+];
+
 export type Product = {
   name: string;
   type: string;
@@ -90,6 +129,7 @@ export type Product = {
   icon: LucideIcon;
   image: string;
   alt: string;
+  category: CategorySlug;
 };
 
 export const products: Product[] = [
@@ -102,6 +142,7 @@ export const products: Product[] = [
     icon: ShieldCheck,
     image: productBovilis,
     alt: "Veterinario preparando una jeringa junto a ganado bovino",
+    category: "bovinos",
   },
   {
     name: "Bravecto® Pour-On",
@@ -112,6 +153,7 @@ export const products: Product[] = [
     icon: FlaskConical,
     image: productBravecto,
     alt: "Frasco gotero de solución tópica",
+    category: "bovinos",
   },
   {
     name: "Nuflor®",
@@ -122,6 +164,7 @@ export const products: Product[] = [
     icon: Syringe,
     image: productNuflor,
     alt: "Veterinario con jeringa junto a ganado en establo",
+    category: "bovinos",
   },
   {
     name: "Revalor®",
@@ -132,6 +175,7 @@ export const products: Product[] = [
     icon: HeartPulse,
     image: productRevalor,
     alt: "Vial y jeringa de aplicación clínica",
+    category: "bovinos",
   },
   {
     name: "Panacur®",
@@ -142,6 +186,7 @@ export const products: Product[] = [
     icon: Beef,
     image: productPanacur,
     alt: "Frascos de solución oral",
+    category: "bovinos",
   },
   {
     name: "Regumate® Equino",
@@ -152,6 +197,7 @@ export const products: Product[] = [
     icon: ClipboardCheck,
     image: productRegumate,
     alt: "Frascos de vidrio para solución oral",
+    category: "equinos",
   },
 ];
 

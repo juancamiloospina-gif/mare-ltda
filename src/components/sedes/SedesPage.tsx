@@ -49,41 +49,54 @@ export function SedesPage() {
             <article
               key={`${location.city}-${locationIndex}`}
               className={cn(
-                "location-card border border-primary-foreground/18 p-6 transition duration-300",
+                "location-card overflow-hidden border border-primary-foreground/18 transition duration-300",
                 index === 0
                   ? "bg-primary-foreground text-primary"
                   : "bg-primary text-primary-foreground",
               )}
             >
-              <div className="flex items-center justify-between">
+              <div className="relative h-32 overflow-hidden">
+                <img
+                  src={location.image}
+                  loading="lazy"
+                  width="900"
+                  height="675"
+                  alt={location.alt}
+                  className="h-full w-full object-cover"
+                />
+                <div className="species-scrim absolute inset-0" />
+                <span className="absolute right-4 top-4 text-xs font-bold text-primary-foreground/70">
+                  0{index + 1}
+                </span>
                 <MapPin
                   className={cn(
-                    "size-6",
+                    "absolute bottom-4 left-4 size-6",
                     index === 0 ? "text-brand-orange" : "text-brand-orange-light",
                   )}
                 />
-                <span className="text-xs font-bold opacity-50">0{index + 1}</span>
               </div>
-              <p className="mt-12 text-xs font-bold uppercase opacity-60">{location.zone}</p>
-              <h3 className="mt-2 text-2xl font-semibold">{location.city}</h3>
-              <p className="mt-3 text-sm opacity-65">{location.address}</p>
-              <div className="mt-8 grid gap-2">
-                <a
-                  href={`https://wa.me/${location.phone}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 font-bold text-brand-orange"
-                >
-                  WhatsApp <ArrowUpRight className="size-4" />
-                </a>
-                <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.city + ", Cundinamarca")}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium opacity-65"
-                >
-                  Cómo llegar <ArrowUpRight className="size-3" />
-                </a>
+              <div className="p-6">
+                <p className="text-xs font-bold uppercase opacity-60">{location.zone}</p>
+                <h3 className="mt-2 text-2xl font-semibold">{location.city}</h3>
+                <p className="mt-3 text-sm opacity-65">{location.address}</p>
+                <div className="mt-8 grid gap-2">
+                  <a
+                    href={`https://wa.me/${location.phone}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 font-bold text-brand-orange"
+                  >
+                    WhatsApp <ArrowUpRight className="size-4" />
+                  </a>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location.city + ", Cundinamarca")}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium opacity-65"
+                  >
+                    Cómo llegar <ArrowUpRight className="size-3" />
+                  </a>
+                </div>
               </div>
             </article>
           ))}

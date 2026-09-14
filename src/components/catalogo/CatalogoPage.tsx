@@ -66,65 +66,78 @@ export function CatalogoPage() {
                     key={product.name}
                     data-reveal
                     style={{ transitionDelay: `${(index % 3) * 70}ms` }}
-                    className="reveal product-card group relative bg-background p-6"
+                    className="reveal product-card group relative bg-background"
                   >
-                    <div className="flex items-start justify-between">
-                      <div className="grid h-11 w-11 place-items-center bg-secondary text-brand-orange">
+                    <div className="relative h-36 overflow-hidden bg-primary">
+                      <img
+                        src={product.image}
+                        loading="lazy"
+                        width="800"
+                        height="600"
+                        alt={product.alt}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-transparent" />
+                      <span className="absolute right-4 top-4 bg-background px-2 py-1 text-xs font-bold text-brand-green">
+                        DISPONIBLE
+                      </span>
+                      <div className="absolute -bottom-5 left-6 grid h-11 w-11 place-items-center bg-secondary text-brand-orange shadow-soft">
                         <product.icon className="size-5" />
                       </div>
-                      <span className="text-xs font-bold text-brand-green">DISPONIBLE</span>
                     </div>
-                    <p className="mt-8 text-xs font-bold uppercase text-muted-foreground">
-                      {product.type}
-                    </p>
-                    <h3 className="mt-2 text-xl font-semibold text-primary">{product.name}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground">{product.active}</p>
-                    <button
-                      type="button"
-                      onClick={() => setActiveProduct(activeProduct === index ? null : index)}
-                      className="mt-7 flex w-full items-center justify-between border-t border-border pt-4 text-left text-sm font-bold text-primary"
-                      aria-expanded={activeProduct === index}
-                    >
-                      Ver ficha rápida{" "}
-                      <ChevronDown
+                    <div className="px-6 pb-6">
+                      <p className="mt-8 text-xs font-bold uppercase text-muted-foreground">
+                        {product.type}
+                      </p>
+                      <h3 className="mt-2 text-xl font-semibold text-primary">{product.name}</h3>
+                      <p className="mt-2 text-sm text-muted-foreground">{product.active}</p>
+                      <button
+                        type="button"
+                        onClick={() => setActiveProduct(activeProduct === index ? null : index)}
+                        className="mt-7 flex w-full items-center justify-between border-t border-border pt-4 text-left text-sm font-bold text-primary"
+                        aria-expanded={activeProduct === index}
+                      >
+                        Ver ficha rápida{" "}
+                        <ChevronDown
+                          className={cn(
+                            "size-4 transition-transform",
+                            activeProduct === index && "rotate-180",
+                          )}
+                        />
+                      </button>
+                      <div
                         className={cn(
-                          "size-4 transition-transform",
-                          activeProduct === index && "rotate-180",
+                          "grid transition-[grid-template-rows] duration-300",
+                          activeProduct === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
                         )}
-                      />
-                    </button>
-                    <div
-                      className={cn(
-                        "grid transition-[grid-template-rows] duration-300",
-                        activeProduct === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
-                      )}
-                    >
-                      <div className="overflow-hidden">
-                        <dl className="mt-4 grid gap-3 bg-section p-4 text-xs">
-                          <div className="flex justify-between gap-3">
-                            <dt className="text-muted-foreground">Administración</dt>
-                            <dd className="font-semibold text-primary">{product.route}</dd>
+                      >
+                        <div className="overflow-hidden">
+                          <dl className="mt-4 grid gap-3 bg-section p-4 text-xs">
+                            <div className="flex justify-between gap-3">
+                              <dt className="text-muted-foreground">Administración</dt>
+                              <dd className="font-semibold text-primary">{product.route}</dd>
+                            </div>
+                            <div className="flex justify-between gap-3">
+                              <dt className="text-muted-foreground">Retiro</dt>
+                              <dd className="text-right font-semibold text-primary">
+                                {product.withdrawal}
+                              </dd>
+                            </div>
+                          </dl>
+                          <div className="mt-3 grid gap-2">
+                            <Button variant="outline" size="sm">
+                              Solicitar ficha técnica
+                            </Button>
+                            <Button asChild variant="brand" size="sm">
+                              <a href="https://wa.me/573000000001" target="_blank" rel="noreferrer">
+                                Cotizar por WhatsApp
+                              </a>
+                            </Button>
                           </div>
-                          <div className="flex justify-between gap-3">
-                            <dt className="text-muted-foreground">Retiro</dt>
-                            <dd className="text-right font-semibold text-primary">
-                              {product.withdrawal}
-                            </dd>
-                          </div>
-                        </dl>
-                        <div className="mt-3 grid gap-2">
-                          <Button variant="outline" size="sm">
-                            Solicitar ficha técnica
-                          </Button>
-                          <Button asChild variant="brand" size="sm">
-                            <a href="https://wa.me/573000000001" target="_blank" rel="noreferrer">
-                              Cotizar por WhatsApp
-                            </a>
-                          </Button>
                         </div>
                       </div>
+                      {/* TODO: conectar backend — ficha técnica y cotización con datos reales. */}
                     </div>
-                    {/* TODO: conectar backend — ficha técnica y cotización con datos reales. */}
                   </article>
                 ))}
               </div>

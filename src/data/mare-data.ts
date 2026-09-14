@@ -13,6 +13,20 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+// Imágenes de apoyo — fotografía de stock libre de derechos comerciales (Unsplash),
+// no son empaques reales de MSD Salud Animal: uso ilustrativo por categoría mientras
+// no haya fotografía propia de producto o de sede.
+import sedeSiberia from "@/assets/mare-sede-siberia.jpg";
+import sedeLaCaro from "@/assets/mare-sede-lacaro.jpg";
+import sedeUbate from "@/assets/mare-sede-ubate.jpg";
+import sedeSimijaca from "@/assets/mare-sede-simijaca.jpg";
+import productBovilis from "@/assets/mare-product-bovilis.jpg";
+import productBravecto from "@/assets/mare-product-bravecto.jpg";
+import productNuflor from "@/assets/mare-product-nuflor.jpg";
+import productRevalor from "@/assets/mare-product-revalor.jpg";
+import productPanacur from "@/assets/mare-product-panacur.jpg";
+import productRegumate from "@/assets/mare-product-regumate.jpg";
+
 export type NavItem = { label: string; to: string };
 
 // Navegación principal — enlaces a rutas reales, no anclas de una sola página.
@@ -28,6 +42,8 @@ export type Location = {
   zone: string;
   address: string;
   phone: string;
+  image: string;
+  alt: string;
 };
 
 export const locations: Location[] = [
@@ -36,24 +52,32 @@ export const locations: Location[] = [
     zone: "Sabana Occidente",
     address: "Aut. Medellín Km 4 · Cundinamarca",
     phone: "573000000001",
+    image: sedeSiberia,
+    alt: "Vista aérea de instalaciones agroindustriales en la sabana",
   },
   {
     city: "La Caro / Chía",
     zone: "Sabana Centro",
     address: "Aut. Norte Km 21 · Cundinamarca",
     phone: "573000000002",
+    image: sedeLaCaro,
+    alt: "Vista aérea de galpones de operación agropecuaria",
   },
   {
     city: "Ubaté",
     zone: "Valle de Ubaté",
     address: "Atención regional · Cundinamarca",
     phone: "573000000003",
+    image: sedeUbate,
+    alt: "Valle verde entre montañas de Cundinamarca",
   },
   {
     city: "Simijaca",
     zone: "Alto Magdalena",
     address: "Punto agropecuario · Cundinamarca",
     phone: "573000000004",
+    image: sedeSimijaca,
+    alt: "Ganado en pastizal de ladera",
   },
 ];
 
@@ -64,6 +88,8 @@ export type Product = {
   route: string;
   withdrawal: string;
   icon: LucideIcon;
+  image: string;
+  alt: string;
 };
 
 export const products: Product[] = [
@@ -74,6 +100,8 @@ export const products: Product[] = [
     route: "Subcutánea",
     withdrawal: "0 días",
     icon: ShieldCheck,
+    image: productBovilis,
+    alt: "Veterinario preparando una jeringa junto a ganado bovino",
   },
   {
     name: "Bravecto® Pour-On",
@@ -82,6 +110,8 @@ export const products: Product[] = [
     route: "Tópica",
     withdrawal: "Consultar ficha",
     icon: FlaskConical,
+    image: productBravecto,
+    alt: "Frasco gotero de solución tópica",
   },
   {
     name: "Nuflor®",
@@ -90,6 +120,8 @@ export const products: Product[] = [
     route: "Intramuscular",
     withdrawal: "Según indicación",
     icon: Syringe,
+    image: productNuflor,
+    alt: "Veterinario con jeringa junto a ganado en establo",
   },
   {
     name: "Revalor®",
@@ -98,6 +130,8 @@ export const products: Product[] = [
     route: "Implante",
     withdrawal: "Consultar ficha",
     icon: HeartPulse,
+    image: productRevalor,
+    alt: "Vial y jeringa de aplicación clínica",
   },
   {
     name: "Panacur®",
@@ -106,6 +140,8 @@ export const products: Product[] = [
     route: "Oral",
     withdrawal: "Según especie",
     icon: Beef,
+    image: productPanacur,
+    alt: "Frascos de solución oral",
   },
   {
     name: "Regumate® Equino",
@@ -114,6 +150,8 @@ export const products: Product[] = [
     route: "Oral",
     withdrawal: "No aplica",
     icon: ClipboardCheck,
+    image: productRegumate,
+    alt: "Frascos de vidrio para solución oral",
   },
 ];
 

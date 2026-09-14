@@ -179,7 +179,7 @@ export function HomeSections() {
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex items-center px-5 py-16 sm:px-12 lg:px-16">
+          <div className="flex items-center justify-center px-5 py-16 sm:px-12 lg:justify-normal lg:px-16">
             <div data-reveal className="reveal max-w-xl">
               <p className="section-kicker text-brand-orange-light">Respaldo MSD Salud Animal</p>
               <h2 className="mt-5 text-3xl font-semibold leading-tight sm:text-5xl">

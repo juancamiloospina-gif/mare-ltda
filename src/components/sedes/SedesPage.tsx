@@ -14,7 +14,7 @@ export function SedesPage() {
 
   return (
     // Sedes ya nace oscura (bg-primary) — no necesita el ChapterHero de las demás páginas internas.
-    <main className="snap-section flex min-h-[100svh] items-center bg-primary py-20 pt-32 text-primary-foreground sm:py-28">
+    <main className="snap-section bg-primary py-20 pt-32 text-primary-foreground sm:py-28">
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col justify-between gap-8 sm:flex-row sm:items-end">
           <SectionIntro

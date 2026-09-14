@@ -31,7 +31,7 @@ export function DistribuidoresPage() {
         copy="Atención para almacenes agropecuarios y distribuidores que buscan respaldo, cumplimiento y un portafolio de alta rotación."
       />
 
-      <section className="snap-section flex min-h-[100svh] items-center bg-section py-20 sm:py-28">
+      <section className="snap-section bg-section py-20 sm:py-28">
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-20 lg:px-10">
           <div>
             <ul className="mt-2 space-y-4 lg:mt-9">

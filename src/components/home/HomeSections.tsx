@@ -100,7 +100,7 @@ export function HomeSections() {
 
       <section
         id="confianza"
-        className="snap-section relative z-10 flex min-h-[100svh] items-center border-b border-border bg-background"
+        className="snap-section relative z-10 border-b border-border bg-background py-14 sm:py-20"
       >
         <div className="mx-auto grid w-full max-w-7xl grid-cols-2 divide-x divide-y divide-border px-5 sm:px-8 lg:grid-cols-4 lg:divide-y-0 lg:px-10">
           {trustStats.map((item, index) => (
@@ -124,7 +124,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="snap-section flex min-h-[100svh] items-center py-20 sm:py-28">
+      <section className="snap-section py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
           <div data-reveal className="reveal max-w-3xl">
             <p className="section-kicker">Soluciones por especie</p>
@@ -174,7 +174,7 @@ export function HomeSections() {
         </div>
       </section>
 
-      <section className="snap-section flex min-h-[100svh] items-center bg-primary text-primary-foreground">
+      <section className="snap-section bg-primary text-primary-foreground">
         <div className="mx-auto grid w-full max-w-[96rem] lg:grid-cols-[1.06fr_.94fr]">
           <div className="min-h-[22rem] lg:min-h-[38rem]">
             <img

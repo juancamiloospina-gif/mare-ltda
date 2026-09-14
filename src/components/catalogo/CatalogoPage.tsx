@@ -53,7 +53,7 @@ export function CatalogoPage() {
         copy="Una muestra visual del portafolio. La recomendación final siempre debe acompañarse de criterio médico veterinario."
       />
 
-      <section className="snap-section flex min-h-[100svh] items-center bg-section py-20 sm:py-28">
+      <section className="snap-section bg-section py-20 sm:py-28">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[17rem_1fr]">
             <aside
@@ -125,13 +125,13 @@ export function CatalogoPage() {
                   </p>
                 </div>
               ) : (
-                <div className="grid gap-px bg-border sm:grid-cols-2 xl:grid-cols-3">
+                <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                   {filteredProducts.map((product, index) => (
                     <article
                       key={product.name}
                       data-reveal
                       style={{ transitionDelay: `${(index % 3) * 70}ms` }}
-                      className="reveal product-card group relative bg-background"
+                      className="reveal product-card group relative border border-border bg-background"
                     >
                       <div className="relative h-36 overflow-hidden bg-primary">
                         <img

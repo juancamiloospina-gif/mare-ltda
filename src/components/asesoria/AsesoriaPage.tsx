@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ChapterHero } from "@/components/layout/ChapterHero";
 import { useReveal } from "@/components/layout/motion";
 import { advisoryPillars } from "@/data/mare-data";
+// Misma fotografía de apoyo que usa Home (Respaldo MSD), con otro encuadre —
+// evita depositar una foto nueva sin curar mientras no haya banco propio de imagen.
+import vetImage from "@/assets/mare-veterinario.jpg";
 
 export function AsesoriaPage() {
   useReveal();
@@ -15,9 +18,19 @@ export function AsesoriaPage() {
         copy="Nuestro equipo técnico observa, pregunta y acompaña. La mejor recomendación nace donde están sus animales."
       />
 
-      <section className="snap-section flex min-h-[100svh] items-center py-20 sm:py-28">
+      <section className="snap-section py-20 sm:py-28">
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
-          <div className="grid gap-px bg-border sm:grid-cols-3">
+          <div className="relative h-64 overflow-hidden sm:h-80 lg:h-96" data-reveal>
+            <img
+              src={vetImage}
+              loading="lazy"
+              width="1600"
+              height="900"
+              alt="Asesor técnico de MARE revisando un bovino en finca"
+              className="h-full w-full object-cover object-[32%_28%]"
+            />
+          </div>
+          <div className="mt-10 grid gap-px bg-border sm:grid-cols-3">
             {advisoryPillars.map((pillar, index) => (
               <article
                 key={pillar.title}

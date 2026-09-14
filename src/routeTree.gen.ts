@@ -10,33 +10,74 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AsesoriaRouteImport } from './routes/asesoria'
+import { Route as CatalogoRouteImport } from './routes/catalogo'
+import { Route as DistribuidoresRouteImport } from './routes/distribuidores'
+import { Route as SedesRouteImport } from './routes/sedes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AsesoriaRoute = AsesoriaRouteImport.update({
+  id: '/asesoria',
+  path: '/asesoria',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CatalogoRoute = CatalogoRouteImport.update({
+  id: '/catalogo',
+  path: '/catalogo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DistribuidoresRoute = DistribuidoresRouteImport.update({
+  id: '/distribuidores',
+  path: '/distribuidores',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SedesRoute = SedesRouteImport.update({
+  id: '/sedes',
+  path: '/sedes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/asesoria': typeof AsesoriaRoute
+  '/catalogo': typeof CatalogoRoute
+  '/distribuidores': typeof DistribuidoresRoute
+  '/sedes': typeof SedesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/asesoria': typeof AsesoriaRoute
+  '/catalogo': typeof CatalogoRoute
+  '/distribuidores': typeof DistribuidoresRoute
+  '/sedes': typeof SedesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/asesoria': typeof AsesoriaRoute
+  '/catalogo': typeof CatalogoRoute
+  '/distribuidores': typeof DistribuidoresRoute
+  '/sedes': typeof SedesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/asesoria' | '/catalogo' | '/distribuidores' | '/sedes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/asesoria' | '/catalogo' | '/distribuidores' | '/sedes'
+  id:
+    '__root__' | '/' | '/asesoria' | '/catalogo' | '/distribuidores' | '/sedes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AsesoriaRoute: typeof AsesoriaRoute
+  CatalogoRoute: typeof CatalogoRoute
+  DistribuidoresRoute: typeof DistribuidoresRoute
+  SedesRoute: typeof SedesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +89,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/asesoria': {
+      id: '/asesoria'
+      path: '/asesoria'
+      fullPath: '/asesoria'
+      preLoaderRoute: typeof AsesoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/catalogo': {
+      id: '/catalogo'
+      path: '/catalogo'
+      fullPath: '/catalogo'
+      preLoaderRoute: typeof CatalogoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/distribuidores': {
+      id: '/distribuidores'
+      path: '/distribuidores'
+      fullPath: '/distribuidores'
+      preLoaderRoute: typeof DistribuidoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sedes': {
+      id: '/sedes'
+      path: '/sedes'
+      fullPath: '/sedes'
+      preLoaderRoute: typeof SedesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AsesoriaRoute: AsesoriaRoute,
+  CatalogoRoute: CatalogoRoute,
+  DistribuidoresRoute: DistribuidoresRoute,
+  SedesRoute: SedesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

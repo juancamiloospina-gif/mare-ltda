@@ -1,9 +1,11 @@
 # Sitio visual MARE
 
 ## Objetivo
+
 Crear una landing navegable, mobile-first y de alto impacto para MARE, enfocada exclusivamente en diseño, contenido estático y motion ligero.
 
 ## Experiencia
+
 - Navegación sticky con enlaces internos a Inicio, Catálogo, Asesoría, Sedes, Distribuidores y Contacto.
 - Portada con fotografía ganadera, mensaje principal, respaldo MSD y dos enlaces estáticos.
 - Franja de confianza con contadores animados y cuatro pruebas de servicio.
@@ -17,6 +19,7 @@ Crear una landing navegable, mobile-first y de alto impacto para MARE, enfocada 
 - Pie de página compacto con datos de marca y accesos internos.
 
 ## Dirección visual
+
 - Paleta MARE: naranja `#F16E22`, azul marino `#1B365D`, verde `#2E7D32` y grises claros.
 - Plus Jakarta Sans para títulos e Inter para lectura.
 - Fotografía limpia de bovinos, equinos, veterinarios y operación logística rural.
@@ -24,6 +27,7 @@ Crear una landing navegable, mobile-first y de alto impacto para MARE, enfocada 
 - Motion basado en transformaciones CSS e IntersectionObserver: reveals, contadores, navegación compacta, carrusel y microinteracciones.
 
 ## Detalles técnicos
+
 - Componentes React enfocados por sección y datos estáticos reutilizables.
 - Imágenes optimizadas servidas como activos del proyecto; carga diferida fuera de la primera pantalla.
 - Enlaces `wa.me`, `mailto:` y Google Maps directos; sin APIs, autenticación ni persistencia.

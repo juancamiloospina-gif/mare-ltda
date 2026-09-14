@@ -18,8 +18,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         brand:
           "bg-brand-orange text-primary-foreground shadow hover:-translate-y-0.5 hover:bg-brand-orange/90 hover:shadow-lg",
-        hero:
-          "border border-primary-foreground/55 bg-transparent text-primary-foreground hover:-translate-y-0.5 hover:bg-primary-foreground/10",
+        hero: "border border-primary-foreground/55 bg-transparent text-primary-foreground hover:-translate-y-0.5 hover:bg-primary-foreground/10",
         heroIcon:
           "border border-primary-foreground/35 bg-transparent text-primary-foreground hover:bg-primary-foreground/10",
         whatsapp:

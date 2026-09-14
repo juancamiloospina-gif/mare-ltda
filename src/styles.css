@@ -65,35 +65,164 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; min-width: 320px; background: var(--color-background); color: var(--color-foreground); font-family: var(--font-sans); }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0; }
-  button, a, input { -webkit-tap-highlight-color: transparent; }
-  ::selection { background: color-mix(in oklab, var(--brand-orange) 25%, transparent); }
+  * {
+    border-color: var(--color-border);
+  }
+  /* proximity (no mandatory): cada sección ocupa su propia pantalla sin forzar el scroll del usuario */
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+  }
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+  button,
+  a,
+  input {
+    -webkit-tap-highlight-color: transparent;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--brand-orange) 25%, transparent);
+  }
 }
 
-@utility section-kicker { font-size: .73rem; font-weight: 800; line-height: 1; text-transform: uppercase; letter-spacing: .16em; color: var(--brand-orange); }
-@utility nav-link { position: relative; font-size: .82rem; font-weight: 650; transition: opacity .2s ease; &:hover { opacity: .65; } }
-@utility shadow-nav { box-shadow: 0 8px 30px color-mix(in oklab, var(--primary) 9%, transparent); }
-@utility shadow-soft { box-shadow: 0 18px 60px color-mix(in oklab, var(--primary) 10%, transparent); }
-@utility shadow-float { box-shadow: 0 20px 60px color-mix(in oklab, var(--primary) 25%, transparent); }
-@utility hero-scrim { background: linear-gradient(90deg, color-mix(in oklab, var(--primary) 94%, transparent) 0%, color-mix(in oklab, var(--primary) 75%, transparent) 43%, color-mix(in oklab, var(--primary) 8%, transparent) 78%); }
-@utility species-scrim { background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 4%, transparent) 30%, color-mix(in oklab, var(--primary) 90%, transparent) 100%); }
-@utility reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s cubic-bezier(.22,1,.36,1), transform .7s cubic-bezier(.22,1,.36,1); &.is-visible { opacity: 1; transform: translateY(0); } }
-@utility animate-hero-in { animation: hero-in .9s .15s both cubic-bezier(.22,1,.36,1); }
-@utility product-card { min-height: 18.5rem; transition: transform .25s ease, box-shadow .25s ease; &:hover { z-index: 2; transform: translateY(-4px); box-shadow: 0 16px 40px color-mix(in oklab, var(--primary) 9%, transparent); } }
-@utility location-card { animation: card-enter .38s both ease-out; }
+@utility section-kicker {
+  font-size: 0.73rem;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--brand-orange);
+}
+@utility nav-link {
+  position: relative;
+  font-size: 0.82rem;
+  font-weight: 650;
+  transition: opacity 0.2s ease;
+  &:hover {
+    opacity: 0.65;
+  }
+}
+@utility shadow-nav {
+  box-shadow: 0 8px 30px color-mix(in oklab, var(--primary) 9%, transparent);
+}
+@utility shadow-soft {
+  box-shadow: 0 18px 60px color-mix(in oklab, var(--primary) 10%, transparent);
+}
+@utility shadow-float {
+  box-shadow: 0 20px 60px color-mix(in oklab, var(--primary) 25%, transparent);
+}
+@utility hero-scrim {
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--primary) 94%, transparent) 0%,
+    color-mix(in oklab, var(--primary) 75%, transparent) 43%,
+    color-mix(in oklab, var(--primary) 8%, transparent) 78%
+  );
+}
+@utility chapter-scrim {
+  background: linear-gradient(
+    0deg,
+    color-mix(in oklab, var(--primary) 92%, transparent) 0%,
+    color-mix(in oklab, var(--primary) 55%, transparent) 55%,
+    color-mix(in oklab, var(--primary) 15%, transparent) 100%
+  );
+}
+@utility snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+@utility species-scrim {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--primary) 4%, transparent) 30%,
+    color-mix(in oklab, var(--primary) 90%, transparent) 100%
+  );
+}
+@utility reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@utility animate-hero-in {
+  animation: hero-in 0.9s 0.15s both cubic-bezier(0.22, 1, 0.36, 1);
+}
+@utility product-card {
+  min-height: 18.5rem;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  &:hover {
+    z-index: 2;
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px color-mix(in oklab, var(--primary) 9%, transparent);
+  }
+}
+@utility location-card {
+  animation: card-enter 0.38s both ease-out;
+}
 
-@keyframes hero-in { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes card-enter { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 @media (max-width: 640px) {
-  .hero-scrim { background: linear-gradient(180deg, color-mix(in oklab, var(--primary) 18%, transparent) 15%, color-mix(in oklab, var(--primary) 92%, transparent) 78%); }
+  .hero-scrim {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--primary) 18%, transparent) 15%,
+      color-mix(in oklab, var(--primary) 92%, transparent) 78%
+    );
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }

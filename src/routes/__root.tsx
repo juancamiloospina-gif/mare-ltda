@@ -11,6 +11,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 
 function NotFoundComponent() {
   return (
@@ -78,10 +81,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MARE | Salud animal en Cundinamarca" },
-      { name: "description", content: "Distribución veterinaria, nutrición y asesoría técnica en campo para bovinos y equinos en Cundinamarca." },
+      {
+        name: "description",
+        content:
+          "Distribución veterinaria, nutrición y asesoría técnica en campo para bovinos y equinos en Cundinamarca.",
+      },
       { name: "author", content: "MARE" },
       { property: "og:title", content: "MARE | Salud animal en Cundinamarca" },
-      { property: "og:description", content: "Precisión veterinaria, nutrición y acompañamiento técnico para el campo colombiano." },
+      {
+        property: "og:description",
+        content:
+          "Precisión veterinaria, nutrición y acompañamiento técnico para el campo colombiano.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -92,7 +103,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap",
+      },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
     ],
   }),
@@ -121,8 +135,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      {/* Header, footer y WhatsApp flotante viven acá: son compartidos por todas las rutas. */}
+      <SiteHeader />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <SiteFooter />
+      <WhatsAppFloat />
     </QueryClientProvider>
   );
 }
